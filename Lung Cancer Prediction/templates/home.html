@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page</title>
+    <style>
+      body {
+        background-color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #0c1844;
+        color: #f0a8d0;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 58px;
+        margin: 0;
+      }
+
+      .logo {
+        width: 80px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px;
+      }
+
+      .info,
+      .form-container {
+        flex: 1;
+        padding: 60px;
+        font-size: 25px;
+        line-height: 1.9;
+        color: #333;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .info {
+        margin-right: 20px;
+      }
+
+      .form-container {
+        max-width: 600px;
+      }
+
+      form {
+        margin: 0;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: calc(100% - 22px);
+        padding: 19px;
+        margin: 25px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+
+      input[type="submit"] {
+        background-color: #008cba;
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 22px;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #005f7f;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #0a6847;
+      }
+    </style>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://img.icons8.com/color-glass/48/lungs.png"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="static/logo.png" alt="Logo" class="logo" />
+      <h1>Plumo Carcinoma</h1>
+    </header>
+    <div class="main-container">
+      <div class="info">
+        <p>
+          Lung cancer is one of the most common and serious types of cancer. It
+          usually starts in the lungs, but it can also spread to other parts of
+          the body. The main types of lung cancer are non-small cell lung cancer
+          (NSCLC) and small cell lung cancer (SCLC). Symptoms can include
+          coughing, chest pain, shortness of breath, and weight loss. Early
+          detection and treatment are crucial for improving the chances of
+          recovery. Our prediction tool helps assess the risk of lung cancer
+          based on various health factors.
+        </p>
+      </div>
+      <div class="form-container">
+        <form action="{{ url_for('login') }}" method="POST">
+          <h2>Login Form</h2>
+          <input type="text" name="username" placeholder="Username" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <input type="submit" value="Login" />
+        </form>
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

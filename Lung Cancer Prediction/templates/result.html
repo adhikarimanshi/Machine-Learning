@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prediction Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      header {
+        background-color: #0c1844;
+        color: #f0a8d0;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      .logo {
+        width: 80px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .logout-button {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        background-color: #f0a8d0;
+        color: #0c1844;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+      }
+
+      .logout-button:hover {
+        background-color: #e09abc;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      p {
+        font-size: 18px;
+        margin: 20px 0;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .recommendation {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #e0f7fa;
+        border-radius: 10px;
+        text-align: left;
+      }
+
+      .recommendation h2 {
+        font-size: 22px;
+        color: #00796b;
+      }
+
+      .recommendation ul {
+        font-size: 18px;
+        color: #004d40;
+      }
+
+      .recommendation ul li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="static/logo.png" alt="Logo" class="logo" />
+      <h1>Plumo Carcinoma</h1>
+      <a href="{{ url_for('home') }}" class="logout-button">Logout</a>
+    </header>
+    <div class="container">
+      <h1>Prediction Result</h1>
+      <p><strong>Patient Name:</strong> {{ name }}</p>
+      <p><strong>Prediction:</strong> {{ result }}</p>
+      <p><strong>Probability:</strong> {{ probability | round(2) * 100 }}%</p>
+      <img src="data:image/png;base64,{{ plot_url }}" alt="Probability Plot" />
+
+      <div class="recommendation">
+        <h2>Recommendations</h2>
+        <ul>
+          {% if result == 'High Risk' %}
+          <li>
+            Consult a healthcare provider for further evaluation and potential
+            diagnostic tests.
+          </li>
+          <li>
+            Consider lifestyle changes such as quitting smoking and reducing
+            alcohol consumption.
+          </li>
+          <li>
+            Increase physical activity and maintain a healthy diet to boost
+            overall health.
+          </li>
+          <li>
+            Regular check-ups and monitoring of symptoms are highly recommended.
+          </li>
+          {% elif result == 'Moderate Risk' %}
+          <li>
+            Discuss with your doctor about potential risk factors and preventive
+            measures.
+          </li>
+          <li>
+            Adopt a healthier lifestyle, including a balanced diet and regular
+            exercise.
+          </li>
+          <li>
+            Monitor any symptoms and seek medical advice if any changes occur.
+          </li>
+          {% elif result == 'Low Risk' %}
+          <li>Maintain your current healthy lifestyle to keep the risk low.</li>
+          <li>
+            Regular health check-ups can help ensure continued well-being.
+          </li>
+          {% else %}
+          <li>
+            No specific recommendations available. Please consult with a
+            healthcare provider for personalized advice.
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

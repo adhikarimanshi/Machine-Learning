@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Health Assessment Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      header {
+        background-color: #0c1844;
+        color: #f0a8d0;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .logo {
+        width: 80px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-size: 38px;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1000px; /* Increase the width of the container */
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #333333;
+        font-size: 25px; /* Increase the font size of labels */
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 20px; /* Increase the font size */
+        height: 50px; /* Increase the height of the input field */
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #ffffff;
+        border: none;
+        padding: 15px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="static/logo.png" alt="Logo" class="logo" />
+      <h1>Plumo Carcinoma</h1>
+    </header>
+    <div class="container">
+      <h1>Health Assessment Form</h1>
+      <form action="{{ url_for('form_page') }}" method="POST">
+        <label for="patient_name">Patient Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required />
+
+        <label for="age">Age:</label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          min="20"
+          max="90"
+          value="50"
+          required
+        />
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <label for="smoking">Smoking:</label>
+        <select id="smoking" name="smoking" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="yellow_fingers">Yellow Fingers:</label>
+        <select id="yellow_fingers" name="yellow_fingers" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="anxiety">Anxiety:</label>
+        <select id="anxiety" name="anxiety" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="peer_pressure">Peer Pressure:</label>
+        <select id="peer_pressure" name="peer_pressure" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="chronic_disease">Chronic Disease:</label>
+        <select id="chronic_disease" name="chronic_disease" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="fatigue">Fatigue:</label>
+        <select id="fatigue" name="fatigue" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="allergy">Allergy:</label>
+        <select id="allergy" name="allergy" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="wheezing">Wheezing:</label>
+        <select id="wheezing" name="wheezing" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="alcohol_consuming">Alcohol Consuming:</label>
+        <select id="alcohol_consuming" name="alcohol_consuming" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="coughing">Coughing:</label>
+        <select id="coughing" name="coughing" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="shortness_of_breath">Shortness of Breath:</label>
+        <select id="shortness_of_breath" name="shortness_of_breath" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="swallowing_difficulty">Swallowing Difficulty:</label>
+        <select
+          id="swallowing_difficulty"
+          name="swallowing_difficulty"
+          required
+        >
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="chest_pain">Chest Pain:</label>
+        <select id="chest_pain" name="chest_pain" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <input type="submit" value="Predict" />
+      </form>
+    </div>
+  </body>
+</html>

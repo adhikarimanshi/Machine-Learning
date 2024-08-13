@@ -1,0 +1,8 @@
+opencv-python
+Flask
+pandas
+joblib
+matplotlib
+seaborn
+scikit-learn
+
